@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+
 import {
   CustomerField,
   CustomersTableType,
@@ -45,6 +46,8 @@ export async function fetchLatestInvoices() {
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }));
+    setTimeout(() => {
+    }, 5000);
     return latestInvoices;
   } catch (error) {
     console.error('Database Error:', error);
